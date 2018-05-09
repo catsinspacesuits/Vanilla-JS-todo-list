@@ -30,7 +30,7 @@ var todoList = {
             // Case 1: If everything’s true, make everything false.
             if (completedTodos === totalTodos) {
                 todo.completed = false;
-                // Case 2: Otherwise, make everything true.
+            // Case 2: Otherwise, make everything true.
             } else {
                 todo.completed = true;
             }
@@ -45,22 +45,28 @@ var handlers = {
         addTodoTextInput.value = '';
         view.displayTodos();
     },
-    changeTodo: function() {
-        var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
-        var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-        todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
-        changeTodoPositionInput.value = '';
-        changeTodoTextInput.value = '';
-        view.displayTodos();
+    changeTodo: function(position, todoText) {
+//         var changeTodoTextInput = document.getElementsByClassName('changeInput');
+//         // var changedTodoPosition = document.getElementsByClassName('changeInput');
+//         // var addChangedText = document.getElementById('changeInput');
+
+// // button needs to be accessible on click
+// // button needs to change input in input field to new input.
+
+        
+        
+//         // changeTodoPositionInput.value = '';
+        
+//         view.displayTodos();
     },
     deleteTodo: function(position) {
         todoList.deleteTodo(position);
         view.displayTodos();
     },
-    toggleCompleted: function() {
-        var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
-        todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
-        toggleCompletedPositionInput.value = '';
+    toggleCompleted: function(position) {
+        // var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+        todoList.toggleCompleted(position);
+        // toggleCompletedPositionInput.value = '';
         view.displayTodos();
     },
     toggleAll: function() {
@@ -87,6 +93,9 @@ var view = {
             todoLi.id = position;
             todoLi.textContent = todoTextWithCompletion;
             todoLi.appendChild(this.createDeleteButton());
+            todoLi.appendChild(this.createChangeButton());
+            todoLi.appendChild(this.createChangeInput());
+            todoLi.appendChild(this.createToggleButton());            
             todosUl.appendChild(todoLi);
         }, this);
     },
@@ -96,12 +105,33 @@ var view = {
         deleteButton.textContent = 'Delete';
         return deleteButton;
     },
+    createToggleButton: function() {
+        var toggleButton = document.createElement('button');
+        toggleButton.className = 'toggleButton';
+        toggleButton.textContent = 'Toggle';
+        return toggleButton;
+    },
+    createChangeButton: function() {
+        var createButton = document.createElement('button');
+        createButton.className = 'createButton';
+        createButton.textContent = 'change';
+        return createButton;
+    },
+    createChangeInput: function() {
+        var createInput = document.createElement('input');
+        createInput.className = 'changeInput';
+        return createInput;
+    },
     setUpEventListeners: function() {
         var todosUl = document.querySelector('ul');
         todosUl.addEventListener('click', function(event) {
             var elementClicked = event.target;
 
-            if (elementClicked.className === 'deleteButton') {
+            if (elementClicked.className === 'toggleButton') {
+                handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
+            } else if (elementClicked.className === 'changeInput') {
+                handlers.changeTodo(parseInt(elementClicked.parentNode.id)); 
+            } else if  (elementClicked.className === 'deleteButton') {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
