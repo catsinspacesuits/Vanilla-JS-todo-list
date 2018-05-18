@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Practical Todos</title>
+    <title>Todo List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Tajawal" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Todo List</h1>
 
-    <div>
-      <button onclick="handlers.toggleAll()">Toggle All</button>
-    </div>
     
-    <div>
-      <input id="addTodoTextInput" type="text" placeholder="enter todo here">
-      <button onclick="handlers.addTodo()">Add</button>
-    </div>
-    
-    <div>
-      <!-- <button onclick="handlers.changeTodo()">Change Todo</button>
-      <input id="changeTodoPositionInput" type="number">
-      <input id="changeTodoTextInput" type="text"> -->
-    </div>
-    
-    <!-- <div>
-      <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-      <input id="toggleCompletedPositionInput" type="number">
-    </div> -->
-    
-    <ul>
-    </ul>
+
+    <div class="wrapper">
+      <h1 class="title">To Do List</h1>
+
+      <div class="text-box">
+        <p>
+        Don't forget a thing by creating your own to do list with this fantastic app!  
+        </p>
+      </div>
+      
+      <div>
+        <input class="" id="addTodoTextInput" type="text" placeholder="Add to your list here!">
+        <button class="btn" onclick="handlers.addTodo()">Add</button>
+      </div>
+      
+      <div>
+        <!-- <button onclick="handlers.changeTodo()">Change Todo</button>
+        <input id="changeTodoPositionInput" type="number">
+        <input id="changeTodoTextInput" type="text"> -->
+      </div>
+      
+      <!-- <div>
+        <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+        <input id="toggleCompletedPositionInput" type="number">
+      </div> -->
+      <div class="tasks-header">
+        <h2>Tasks</h2>
+        <button id="toggleall-button" class="btn" onclick="handlers.toggleAll()">Toggle All</button>
+      </div>
+      
+      <ul class="todo-list">
+      </ul>
+    </div> <!-- end of wrapper -->
+
     <script src="scripts.js"></script>
   </body>
 </html>

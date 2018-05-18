@@ -45,20 +45,6 @@ var handlers = {
         addTodoTextInput.value = '';
         view.displayTodos();
     },
-    changeTodo: function(position, todoText) {
-//         var changeTodoTextInput = document.getElementsByClassName('changeInput');
-//         // var changedTodoPosition = document.getElementsByClassName('changeInput');
-//         // var addChangedText = document.getElementById('changeInput');
-
-// // button needs to be accessible on click
-// // button needs to change input in input field to new input.
-
-        
-        
-//         // changeTodoPositionInput.value = '';
-        
-//         view.displayTodos();
-    },
     deleteTodo: function(position) {
         todoList.deleteTodo(position);
         view.displayTodos();
@@ -84,36 +70,36 @@ var view = {
             var todoLi = document.createElement('li');
             var todoTextWithCompletion = '';
 
+            todoTextWithCompletion = todo.todoText;
+
             if (todo.completed === true) {
-                todoTextWithCompletion = '(x) ' + todo.todoText;
-            } else {
-                todoTextWithCompletion = '( ) ' + todo.todoText;
+                todoLi.classList.toggle('toggle');
+            } else {         
             }
 
             todoLi.id = position;
             todoLi.textContent = todoTextWithCompletion;
+            // todoLi.appendChild(this.createChangeInput());
             todoLi.appendChild(this.createDeleteButton());
-            todoLi.appendChild(this.createChangeButton());
-            todoLi.appendChild(this.createChangeInput());
+            // todoLi.appendChild(this.createChangeButton());
             todoLi.appendChild(this.createToggleButton());            
             todosUl.appendChild(todoLi);
         }, this);
     },
     createDeleteButton: function() {
-        var deleteButton = document.createElement('button');
-        deleteButton.className = 'deleteButton';
-        deleteButton.textContent = 'Delete';
+        var deleteButton = document.createElement('i');
+        deleteButton.className = 'deleteButton far fa-trash-alt';
         return deleteButton;
     },
     createToggleButton: function() {
         var toggleButton = document.createElement('button');
-        toggleButton.className = 'toggleButton';
-        toggleButton.textContent = 'Toggle';
+        toggleButton.className = 'toggleButton btn';
+        toggleButton.textContent = 'Mark as done';
         return toggleButton;
     },
     createChangeButton: function() {
         var createButton = document.createElement('button');
-        createButton.className = 'createButton';
+        createButton.className = 'createButton btn';
         createButton.textContent = 'change';
         return createButton;
     },
@@ -127,11 +113,11 @@ var view = {
         todosUl.addEventListener('click', function(event) {
             var elementClicked = event.target;
 
-            if (elementClicked.className === 'toggleButton') {
+            if (elementClicked.className === 'toggleButton btn') {
                 handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
-            } else if (elementClicked.className === 'changeInput') {
+            } else if (elementClicked.className === 'changeInput btn') {
                 handlers.changeTodo(parseInt(elementClicked.parentNode.id)); 
-            } else if  (elementClicked.className === 'deleteButton') {
+            } else if  (elementClicked.className === 'deleteButton far fa-trash-alt') {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
