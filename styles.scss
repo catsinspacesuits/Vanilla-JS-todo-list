@@ -1,10 +1,10 @@
 $background: #27586B;
+$beige: #FFE7AB;
+$subHeading: #7DBA94;
 $fromBtn: darken($background, 15%);
 $toBtn: darken($background, 6%);
 
-@mixin verticalGradient($fromColor, $toColor) {
-	background-image: linear-gradient(to bottom, $fromColor, $toColor)
-}
+@import 'mixins';
 
 * {
 	margin: 0;
@@ -12,59 +12,59 @@ $toBtn: darken($background, 6%);
 	box-sizing: border-box;
 }
 
-body {
-	font-family: Tajawal, helvetica, sans-serif;
+html, body {
+	font-family: NTR, helvetica, sans-serif;
 	color: white;
+	height: 100%;
+	background-color: $background;
 }
 
 .wrapper {
-	background-color: $background;
 	width: 100%;
 	padding: 10px;
-	height: 100vh;
-
-	h1 {
-		font-family: Lato, arial;
-		font-size: 40px;
-	}
-	h2 {
-		font-family: Lato, arial;
-		font-size: 30px;
-		text-align: center;
-	}
-}
-
-.btn {
-	padding: 7px 12px;
-	margin: 10px;
-	border: 2px solid white;
-	color: #ddd;
-	font-size: 0.8rem;
-	font-weight: 500;
-	border-radius: 5px;
-	@include verticalGradient($fromBtn, $toBtn);
-}
-
-.text-box {
-	width: 92%;
-	border: 2px solid white;
-	padding: 5%;
-	margin: 4%;
-	border-radius: 5px;
-		p {
+	height: 100%;
+	letter-spacing: 1.4px;
+		h1 {
+			font-size: 2.7rem;
+			letter-spacing: 1.4px;
+		}
+		h2 {
+			font-size: 1.8rem;
+			padding-bottom: 5px;
 			text-align: center;
-			font-size: 20px;
-			font-weight: 700;
+			color: $subHeading;
+			text-decoration: underline;
 		}
 }
 
 .title  {
 	text-align: center;
-	padding: 10px;
+	padding: 5px;
+}
+
+.text-box {
+	width: 92%;
+	border: 2px solid white;
+	padding: 3.5%;
+	margin: 0 auto 20px auto;
+	border-radius: 5px;
+	background-color: $background;
+	box-shadow: 0px 3px 27px 0px #ddd;
+		p {
+			text-align: center;
+			font-size: 0.9rem;
+			font-weight: 700;
+			color: white;
+		}
+}
+
+.add-todos {
+	width: 90%;
+	margin: 10px auto;
 }
 
 input {
-	width: 50%;
+	width: 40%;
 	height: 33px;
 	border: 1px solid #ccc;
 	font-style: italic;
@@ -76,47 +76,118 @@ input {
 	text-decoration: line-through;
 }
 
-.tasks-header {
-	
-	#toggleall-button {
-		display: block;
-		width: 100px;
-		margin: 15px auto;
-		color: darken($background, 10%);
-		background-image: none;
-		background-color: white;
-	}
+// BUTTONS
+
+.btn {
+	padding: 7px;
+	margin: 4px;
+	border: 2px solid white;
+	color: #ddd;
+	font-size: 0.8rem;
+	font-weight: 500;
+	border-radius: 5px;
+	@include transition;
+	@include verticalGradient($fromBtn, $toBtn);
+	&:hover {
+	        cursor: pointer;
+	        @include verticalGradient(black, $background);
+	    }
+}
+
+.add-btn {
+	width: 60px;
+	padding: 7px 16px 7px 0;
+		span {
+			@include transition;
+			opacity: 0;
+		}
+}
+
+.add-btn:hover span {
+  padding: 7px;
+  opacity: 1;
+}
+
+#toggleall-button {
+	color: darken($background, 10%);
+	background-image: none;
+	background-color: white;
 }
 
 .toggleButton {
-	width: 90px;
-	padding: 10px;
-	float: right;
-	margin: 0;
-	border: 1px solid white;
-	font-size: 0.6rem;
+	width: 55px;
+	padding: 7px 0;
+	vertical-align: middle;
+	margin: 2px 6px 2px 12px;
+	border-width: 1px;
+	font-size: 0.4rem;
+	text-transform: uppercase;
+	@include transition;
+		&:hover {
+		        cursor: pointer;
+		        @include verticalGradient(black, $background);
+		    }
 }
+
+// LIST ITEMS
 
 .todo-list {
 	list-style-type: none;
+	padding-bottom: 30px;
 	li {
 		margin: 6px;
-		padding: 8px;
-		color: white;
-		font-size: 20px;
-		
+		padding: 7px 10px;
+		color: $beige;
+		font-size: 1.1rem;
 		border: 1px solid white;
 		box-shadow: 4px 4px 70px darken($background, 30%);
+		background-color: lighten($background, 5%);
 		border-radius: 5px;
 		clear: both;
+		overflow: hidden;
 	}
-
 	i {
-		padding: 15px;
-		font-size: 1.5rem;
+		padding: 0 8px;
 		color: black;
+		vertical-align: middle;
 	}
 	
 }
 
+// MEDIA QUERIES
+
+@media (min-width: 767px) {
+	html { font-size: 18px;
+	}
+	.text-box {
+		width: 70%;
+		margin-bottom: 30px;
+	}
+	.add-todos {
+		width: 60%;
+	}
+	.todo-list li {
+		width: 60%;
+		margin: 10px auto;
+	}
+	.add-btn {
+		width: 85px;
+	}
+}
+
+@media (min-width: 1025px) {
+	html { font-size: 24px;
+	}
+	.text-box {
+		width: 60%;
+		margin-bottom: 50px;
+	}
+	.add-todos {
+		width: 50%;
+	}
+		.todo-list li {
+			width: 50%;
+			margin: 15px auto;
+		}
+	}
 

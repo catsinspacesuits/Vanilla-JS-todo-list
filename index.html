@@ -4,7 +4,7 @@
     <title>Todo List</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Tajawal" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
   <body>
@@ -16,13 +16,14 @@
 
       <div class="text-box">
         <p>
-        Don't forget a thing by creating your own to do list with this fantastic app!  
+        Don't forget a thing by creating your own to-do list with this fantastic app!  
         </p>
       </div>
       
-      <div>
-        <input class="" id="addTodoTextInput" type="text" placeholder="Add to your list here!">
-        <button class="btn" onclick="handlers.addTodo()">Add</button>
+      <div class="add-todos">
+        <input class="" id="addTodoTextInput" type="text" placeholder="Add to your list!">
+        <button class="add-btn btn" onclick="handlers.addTodo()"><span><<</span>Add</button>
+        <button id="toggleall-button" class="btn" onclick="handlers.toggleAll()">Toggle All</button>
       </div>
       
       <div>
@@ -37,13 +38,13 @@
       </div> -->
       <div class="tasks-header">
         <h2>Tasks</h2>
-        <button id="toggleall-button" class="btn" onclick="handlers.toggleAll()">Toggle All</button>
       </div>
       
       <ul class="todo-list">
       </ul>
+      <script src="scripts.js"></script>
     </div> <!-- end of wrapper -->
 
-    <script src="scripts.js"></script>
+    
   </body>
 </html>

@@ -78,11 +78,12 @@ var view = {
             }
 
             todoLi.id = position;
+            
             todoLi.textContent = todoTextWithCompletion;
-            // todoLi.appendChild(this.createChangeInput());
+            todoLi.appendChild(this.createToggleButton()); 
             todoLi.appendChild(this.createDeleteButton());
             // todoLi.appendChild(this.createChangeButton());
-            todoLi.appendChild(this.createToggleButton());            
+            // todoLi.appendChild(this.createChangeInput());          
             todosUl.appendChild(todoLi);
         }, this);
     },
@@ -94,7 +95,7 @@ var view = {
     createToggleButton: function() {
         var toggleButton = document.createElement('button');
         toggleButton.className = 'toggleButton btn';
-        toggleButton.textContent = 'Mark as done';
+        toggleButton.textContent = 'done';
         return toggleButton;
     },
     createChangeButton: function() {

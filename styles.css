@@ -3,50 +3,51 @@
   padding: 0;
   box-sizing: border-box; }
 
-body {
-  font-family: Tajawal, helvetica, sans-serif;
-  color: white; }
+html, body {
+  font-family: NTR, helvetica, sans-serif;
+  color: white;
+  height: 100%;
+  background-color: #27586B; }
 
 .wrapper {
-  background-color: #27586B;
   width: 100%;
   padding: 10px;
-  height: 100vh; }
+  height: 100%;
+  letter-spacing: 1.4px; }
   .wrapper h1 {
-    font-family: Lato, arial;
-    font-size: 40px; }
+    font-size: 2.7rem;
+    letter-spacing: 1.4px; }
   .wrapper h2 {
-    font-family: Lato, arial;
-    font-size: 30px;
-    text-align: center; }
+    font-size: 1.8rem;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #7DBA94;
+    text-decoration: underline; }
 
-.btn {
-  padding: 7px 12px;
-  margin: 10px;
-  border: 2px solid white;
-  color: #ddd;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border-radius: 5px;
-  background-image: linear-gradient(to bottom, #132a33, #1f4655); }
+.title {
+  text-align: center;
+  padding: 5px; }
 
 .text-box {
   width: 92%;
   border: 2px solid white;
-  padding: 5%;
-  margin: 4%;
-  border-radius: 5px; }
+  padding: 3.5%;
+  margin: 0 auto 20px auto;
+  border-radius: 5px;
+  background-color: #27586B;
+  box-shadow: 0px 3px 27px 0px #ddd; }
   .text-box p {
     text-align: center;
-    font-size: 20px;
-    font-weight: 700; }
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white; }
 
-.title {
-  text-align: center;
-  padding: 10px; }
+.add-todos {
+  width: 90%;
+  margin: 10px auto; }
 
 input {
-  width: 50%;
+  width: 40%;
   height: 33px;
   border: 1px solid #ccc;
   font-style: italic;
@@ -56,36 +57,122 @@ input {
 .toggle {
   text-decoration: line-through; }
 
-.tasks-header #toggleall-button {
-  display: block;
-  width: 100px;
-  margin: 15px auto;
+.btn {
+  padding: 7px;
+  margin: 4px;
+  border: 2px solid white;
+  color: #ddd;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  background-image: linear-gradient(to bottom, #132a33, #1f4655);
+  background-image: -webkit-linear-gradient(to bottom, #132a33, #1f4655);
+  background-image: -moz-linear-gradient(to bottom, #132a33, #1f4655);
+  background-image: -o-linear-gradient(to bottom, #132a33, #1f4655);
+  background-image: -ms-linear-gradient(to bottom, #132a33, #1f4655); }
+  .btn:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, black, #27586B);
+    background-image: -webkit-linear-gradient(to bottom, black, #27586B);
+    background-image: -moz-linear-gradient(to bottom, black, #27586B);
+    background-image: -o-linear-gradient(to bottom, black, #27586B);
+    background-image: -ms-linear-gradient(to bottom, black, #27586B); }
+
+.add-btn {
+  width: 60px;
+  padding: 7px 16px 7px 0; }
+  .add-btn span {
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    opacity: 0; }
+
+.add-btn:hover span {
+  padding: 7px;
+  opacity: 1; }
+
+#toggleall-button {
   color: #193946;
   background-image: none;
   background-color: white; }
 
 .toggleButton {
-  width: 90px;
-  padding: 10px;
-  float: right;
-  margin: 0;
-  border: 1px solid white;
-  font-size: 0.6rem; }
+  width: 55px;
+  padding: 7px 0;
+  vertical-align: middle;
+  margin: 2px 6px 2px 12px;
+  border-width: 1px;
+  font-size: 0.4rem;
+  text-transform: uppercase;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s; }
+  .toggleButton:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, black, #27586B);
+    background-image: -webkit-linear-gradient(to bottom, black, #27586B);
+    background-image: -moz-linear-gradient(to bottom, black, #27586B);
+    background-image: -o-linear-gradient(to bottom, black, #27586B);
+    background-image: -ms-linear-gradient(to bottom, black, #27586B); }
 
 .todo-list {
-  list-style-type: none; }
+  list-style-type: none;
+  padding-bottom: 30px; }
   .todo-list li {
     margin: 6px;
-    padding: 8px;
-    color: white;
-    font-size: 20px;
+    padding: 7px 10px;
+    color: #FFE7AB;
+    font-size: 1.1rem;
     border: 1px solid white;
     box-shadow: 4px 4px 70px black;
+    background-color: #2e677e;
     border-radius: 5px;
-    clear: both; }
+    clear: both;
+    overflow: hidden; }
   .todo-list i {
-    padding: 15px;
-    font-size: 1.5rem;
-    color: black; }
+    padding: 0 8px;
+    color: black;
+    vertical-align: middle; }
+
+@media (min-width: 767px) {
+  html {
+    font-size: 18px; }
+
+  .text-box {
+    width: 70%;
+    margin-bottom: 30px; }
+
+  .add-todos {
+    width: 60%; }
+
+  .todo-list li {
+    width: 60%;
+    margin: 10px auto; }
+
+  .add-btn {
+    width: 85px; } }
+@media (min-width: 1025px) {
+  html {
+    font-size: 24px; }
+
+  .text-box {
+    width: 60%;
+    margin-bottom: 50px; }
+
+  .add-todos {
+    width: 50%; }
+
+  .todo-list li {
+    width: 50%;
+    margin: 15px auto; } }
 
 /*# sourceMappingURL=styles.css.map */
