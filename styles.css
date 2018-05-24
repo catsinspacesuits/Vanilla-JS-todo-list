@@ -19,10 +19,8 @@ html, body {
     letter-spacing: 1.4px; }
   .wrapper h2 {
     font-size: 1.8rem;
-    padding-bottom: 5px;
     text-align: center;
-    color: #7DBA94;
-    text-decoration: underline; }
+    color: #7DBA94; }
 
 .title {
   text-align: center;
@@ -49,7 +47,7 @@ html, body {
 input {
   width: 40%;
   height: 33px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   font-style: italic;
   border-radius: 4px;
   padding: 8px; }
@@ -95,7 +93,7 @@ input {
     opacity: 0; }
 
 .add-btn:hover span {
-  padding: 7px;
+  padding: 4px;
   opacity: 1; }
 
 #toggleall-button {
@@ -110,19 +108,7 @@ input {
   margin: 2px 6px 2px 12px;
   border-width: 1px;
   font-size: 0.4rem;
-  text-transform: uppercase;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s; }
-  .toggleButton:hover {
-    cursor: pointer;
-    background-image: linear-gradient(to bottom, black, #27586B);
-    background-image: -webkit-linear-gradient(to bottom, black, #27586B);
-    background-image: -moz-linear-gradient(to bottom, black, #27586B);
-    background-image: -o-linear-gradient(to bottom, black, #27586B);
-    background-image: -ms-linear-gradient(to bottom, black, #27586B); }
+  text-transform: uppercase; }
 
 .todo-list {
   list-style-type: none;
@@ -139,9 +125,11 @@ input {
     clear: both;
     overflow: hidden; }
   .todo-list i {
-    padding: 0 8px;
+    padding: 0 4px;
     color: black;
     vertical-align: middle; }
+    .todo-list i:hover {
+      cursor: pointer; }
 
 @media (min-width: 767px) {
   html {

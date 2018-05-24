@@ -30,7 +30,7 @@ var todoList = {
             // Case 1: If everything’s true, make everything false.
             if (completedTodos === totalTodos) {
                 todo.completed = false;
-            // Case 2: Otherwise, make everything true.
+                // Case 2: Otherwise, make everything true.
             } else {
                 todo.completed = true;
             }
@@ -50,9 +50,7 @@ var handlers = {
         view.displayTodos();
     },
     toggleCompleted: function(position) {
-        // var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
         todoList.toggleCompleted(position);
-        // toggleCompletedPositionInput.value = '';
         view.displayTodos();
     },
     toggleAll: function() {
@@ -74,16 +72,12 @@ var view = {
 
             if (todo.completed === true) {
                 todoLi.classList.toggle('toggle');
-            } else {         
-            }
+            } else {}
 
             todoLi.id = position;
-            
             todoLi.textContent = todoTextWithCompletion;
-            todoLi.appendChild(this.createToggleButton()); 
+            todoLi.appendChild(this.createToggleButton());
             todoLi.appendChild(this.createDeleteButton());
-            // todoLi.appendChild(this.createChangeButton());
-            // todoLi.appendChild(this.createChangeInput());          
             todosUl.appendChild(todoLi);
         }, this);
     },
@@ -117,12 +111,11 @@ var view = {
             if (elementClicked.className === 'toggleButton btn') {
                 handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
             } else if (elementClicked.className === 'changeInput btn') {
-                handlers.changeTodo(parseInt(elementClicked.parentNode.id)); 
-            } else if  (elementClicked.className === 'deleteButton far fa-trash-alt') {
+                handlers.changeTodo(parseInt(elementClicked.parentNode.id));
+            } else if (elementClicked.className === 'deleteButton far fa-trash-alt') {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
-
     }
 };
 

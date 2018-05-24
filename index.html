@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
   <body>
-
-    
-
     <div class="wrapper">
       <h1 class="title">To Do List</h1>
 
@@ -26,25 +23,14 @@
         <button id="toggleall-button" class="btn" onclick="handlers.toggleAll()">Toggle All</button>
       </div>
       
-      <div>
-        <!-- <button onclick="handlers.changeTodo()">Change Todo</button>
-        <input id="changeTodoPositionInput" type="number">
-        <input id="changeTodoTextInput" type="text"> -->
-      </div>
-      
-      <!-- <div>
-        <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-        <input id="toggleCompletedPositionInput" type="number">
-      </div> -->
       <div class="tasks-header">
         <h2>Tasks</h2>
       </div>
       
-      <ul class="todo-list">
+      <ul class="todo-list"> <!-- li elements will be appended here -->
       </ul>
-      <script src="scripts.js"></script>
-    </div> <!-- end of wrapper -->
 
-    
+      <script src="scripts.js"></script>
+    </div> <!-- end of wrapper -->  
   </body>
 </html>

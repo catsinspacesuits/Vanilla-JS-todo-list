@@ -11,37 +11,31 @@ $toBtn: darken($background, 6%);
 	padding: 0;
 	box-sizing: border-box;
 }
-
 html, body {
 	font-family: NTR, helvetica, sans-serif;
 	color: white;
 	height: 100%;
 	background-color: $background;
 }
-
 .wrapper {
 	width: 100%;
 	padding: 10px;
 	height: 100%;
 	letter-spacing: 1.4px;
-		h1 {
-			font-size: 2.7rem;
-			letter-spacing: 1.4px;
-		}
-		h2 {
-			font-size: 1.8rem;
-			padding-bottom: 5px;
-			text-align: center;
-			color: $subHeading;
-			text-decoration: underline;
-		}
+	h1 {
+		font-size: 2.7rem;
+		letter-spacing: 1.4px;
+	}
+	h2 {
+		font-size: 1.8rem;
+		text-align: center;
+		color: $subHeading;
+	}
 }
-
-.title  {
+.title {
 	text-align: center;
 	padding: 5px;
 }
-
 .text-box {
 	width: 92%;
 	border: 2px solid white;
@@ -50,28 +44,25 @@ html, body {
 	border-radius: 5px;
 	background-color: $background;
 	box-shadow: 0px 3px 27px 0px #ddd;
-		p {
-			text-align: center;
-			font-size: 0.9rem;
-			font-weight: 700;
-			color: white;
-		}
+	p {
+		text-align: center;
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: white;
+	}
 }
-
 .add-todos {
 	width: 90%;
 	margin: 10px auto;
 }
-
 input {
 	width: 40%;
 	height: 33px;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	font-style: italic;
 	border-radius: 4px;
 	padding: 8px;
 }
-
 .toggle {
 	text-decoration: line-through;
 }
@@ -89,31 +80,27 @@ input {
 	@include transition;
 	@include verticalGradient($fromBtn, $toBtn);
 	&:hover {
-	        cursor: pointer;
-	        @include verticalGradient(black, $background);
-	    }
+		cursor: pointer;
+		@include verticalGradient(black, $background);
+	}
 }
-
 .add-btn {
 	width: 60px;
 	padding: 7px 16px 7px 0;
-		span {
-			@include transition;
-			opacity: 0;
-		}
+	span {
+		@include transition;
+		opacity: 0;
+	}
 }
-
 .add-btn:hover span {
-  padding: 7px;
-  opacity: 1;
+	padding: 4px;
+	opacity: 1;
 }
-
 #toggleall-button {
 	color: darken($background, 10%);
 	background-image: none;
 	background-color: white;
 }
-
 .toggleButton {
 	width: 55px;
 	padding: 7px 0;
@@ -122,11 +109,6 @@ input {
 	border-width: 1px;
 	font-size: 0.4rem;
 	text-transform: uppercase;
-	@include transition;
-		&:hover {
-		        cursor: pointer;
-		        @include verticalGradient(black, $background);
-		    }
 }
 
 // LIST ITEMS
@@ -147,17 +129,20 @@ input {
 		overflow: hidden;
 	}
 	i {
-		padding: 0 8px;
+		padding: 0 4px;
 		color: black;
 		vertical-align: middle;
+		&:hover {
+			cursor: pointer;
+		}
 	}
-	
 }
 
 // MEDIA QUERIES
 
 @media (min-width: 767px) {
-	html { font-size: 18px;
+	html {
+		font-size: 18px;
 	}
 	.text-box {
 		width: 70%;
@@ -174,9 +159,9 @@ input {
 		width: 85px;
 	}
 }
-
 @media (min-width: 1025px) {
-	html { font-size: 24px;
+	html {
+		font-size: 24px;
 	}
 	.text-box {
 		width: 60%;
@@ -185,9 +170,8 @@ input {
 	.add-todos {
 		width: 50%;
 	}
-		.todo-list li {
-			width: 50%;
-			margin: 15px auto;
-		}
+	.todo-list li {
+		width: 50%;
+		margin: 15px auto;
 	}
-
+}
